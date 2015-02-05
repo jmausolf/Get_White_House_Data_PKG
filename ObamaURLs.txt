@@ -1,0 +1,79 @@
+# Example URLS for Actual Speeches and Remarks:
+
+http://www.whitehouse.gov/the-press-office/2014/10/30/remarks-first-lady-grassroots-campaign-event-democratic-candidate-govern
+
+http://www.whitehouse.gov/the-press-office/2014/12/24/remarks-first-lady-children-norad-santa-tracker-calls
+
+http://www.whitehouse.gov/the-press-office/2012/05/26/remarks-vice-president-joe-biden-commencement-ceremony-united-states-mil
+
+## Problem: each URL is unique and follows no pattern save the initial string "http://www.whitehouse.gov/the-press-office" 
+
+
+
+Parent URL Example:
+http://www.whitehouse.gov/briefing-room/Speeches-and-Remarks/2012/05?page=0
+http://www.whitehouse.gov/briefing-room/Speeches-and-Remarks/2012/05?page=1
+http://www.whitehouse.gov/briefing-room/Speeches-and-Remarks/2012/05?page=2
+
+
+These parent URLs have links for each speech.
+
+Example 
+http://www.whitehouse.gov/the-press-office/2012/05/31/remarks-president-obama-first-lady-michelle-obama-former-president-georg
+
+
+
+## Need to first scrape the range of page numbers. If you put in a ?page=<# that is invalid>, the page returns to the first page and you will rescrape data you already have.
+
+
+Page number ref's seem to be embedded in this bit of HTML
+<div class="item-list">
+
+    <ul class="pager"></ul>
+
+</div>
+
+
+
+
+##### BASIC URL STRATEGY #####
+
+#1 FIRST
+	Generate a list of all parent directories at
+	http://www.whitehouse.gov/briefing-room/Speeches-and-Remarks/YYYY/MM
+
+	where YYYY/MM begins at 2009/01 and ends at the present year and month combination
+
+
+
+#2 SECOND
+	For a given year month combination, scape/count how many categories of HTML code exist for "<li class="pager-item">"
+	The total number of pages is indexed at 0 and goes to the number of <li class="pager-item"> elements. If there are 4, then their are 1+4 pages ranging page=0 to page=4
+
+
+#3 THIRD
+	Use the scraped (page 0 to X for each YYYY/MM combination) information to create a list of all parent URLS. Make this a new list.
+
+
+
+#4 FOURTH
+
+	For all links in the parent URL list, scape all page links for the speeches and remarks: 
+	<div class="view-content">
+		all <a href=> links
+
+	Export all parent URL's to a list.
+
+
+#5 FIFTH
+
+	For each URL in the Speechs URL list:
+
+		Return a list of all URL's and save. 
+
+
+# AFTER
+	Run each URL through text scraper function
+	Scrape the date/time and collect as a new var function
+	Save each text output to a txt file <name=date_time>
+
