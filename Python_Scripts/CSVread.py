@@ -17,7 +17,7 @@ def read_reqURLs(i):
 		reader = csv.reader(urls_file)
 		lines = list(reader)
 		URL = lines[i]
-		print "generating base url", i 
+		print "generating base url", i+1
 		return URL
 
 
@@ -26,7 +26,7 @@ def read_subURLs(i):
 		reader = csv.reader(urls_file)
 		lines = list(reader)
 		URL = lines[i]
-		print "generating subpage", i 
+		print "generating subpage", i+1
 		return URL
 
 
@@ -35,6 +35,6 @@ def read_speechURLs(i):
 		reader = csv.reader(urls_file)
 		lines = list(reader)
 		URL = lines[i]
-		print "creating file", i
+		print "creating file", i+1
 		return URL
 

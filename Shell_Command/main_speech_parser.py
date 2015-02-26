@@ -10,8 +10,7 @@ from pages import *
 from date import date
 from CSVread import *
 from Speech_parser import *
-
-
+from Speech_parser2 import *
 
 
 
@@ -19,26 +18,8 @@ from Speech_parser import *
 
 if __name__ == '__main__':
 
-	"""
-	#print "Len Dates", len(Dates)
-
-	#os.makedirs('Speech_OS')
-
-	#os.chdir('Speech_OS')
-	os.chdir('bash_Speech')
-	for URL in range(120, 130):
-		speechURL = '\n'.join(map(str, read_speechURLs(URL)))
-		#os.chdir('Speech_OS')
-		time.sleep(0.5)
-		WHT(speechURL)
-    	#subprocess.call("cd ..", shell=True)
-    	#os.system('cd ..')
-    """
-
 
 	#Get Number of Lines of Speech URLs
-
-
 	os.chdir('bash_Speech')
 	with open('speechurls.csv', 'rb') as urls_file:
 		reader = csv.reader(urls_file)
@@ -47,13 +28,17 @@ if __name__ == '__main__':
 		print "Total requested speech urls:", XSp
 
 
-
-
 	# Create Parsed Speeches
-	for URL in range(0, XSp):
+	#for URL in range(0, XSp):
+	for URL in range(549, 553):
 		speechURL = '\n'.join(map(str, read_speechURLs(URL)))
 		time.sleep(0.5)
-		WHT(speechURL)
+		try:
+			#Try the 1st Parser, Works Most Speeches
+			WHT(speechURL)
+		except:
+			#Try the 2nd Parser, Works when Parser 1 Fails
+			WHT2(speechURL)
 
 
 

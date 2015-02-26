@@ -1,12 +1,12 @@
-#First Parser Created Addresses Most White Hosue HTML Code
-#WHT1 works when release and date are in <div class="release" INFO </div>
-# and <div class="date"> INFO </div>. Otherwise use WHT2. 
+#Second Parser Created to Address Differing HTML Code from White House
 #WHT2 works when the speech header is set up as <div id="content">
-# <p allign="center" INFO p>.
+# <p allign="center" INFO p> . Otherwise, use WHT1.
+#WHT1 works when release and date are in <div class="release" INFO </div>
+# and <div class="date"> INFO </div>.
 
 
 
-def WHT(url):
+def WHT2(url):
     """Prints Text Output for a given URL from Whitehouse Speeches and Remarks"""
     
     import urllib2,sys, random
@@ -15,20 +15,6 @@ def WHT(url):
 
     soup = BeautifulSoup(urllib2.urlopen(url).read())
 
-
-    # Get Date
-    Date = soup.find("div", {"class":"date"})
-    raw_date = Date.get_text()
-    date = raw_date.replace(' ', '', 12)
-
-    # Get Release
-    Release = soup.find("div", {"class":"release"})
-    raw_release = Release.get_text()
-    release = raw_release.replace(' ', '', 12)+"\n\n"
-
-    # Get Title
-    Title = soup.find("h1", {"property":"dc:title"})
-    title = Title.get_text()
 
     
     # Get Paragraph Body
@@ -57,9 +43,6 @@ def WHT(url):
         if os.path.isfile(path1) == False:
             #print "no file ID1 found, create ID1"
             f = open(date_id+"_"+"ID1"+".txt", 'w')
-            f.write(date.encode('utf-8'))
-            f.write(release.encode('utf-8'))
-            f.write(title.encode('utf-8'))
             f.write(paragraph_body.encode('utf-8'))
             f.close
             return
@@ -69,9 +52,6 @@ def WHT(url):
             if os.path.isfile(path2) == False:
                 print "found ID1, no file ID2 found, make ID2"
                 f = open(date_id+"_"+"ID2"+".txt", 'w')
-                f.write(date.encode('utf-8'))
-                f.write(release.encode('utf-8'))
-                f.write(title.encode('utf-8'))
                 f.write(paragraph_body.encode('utf-8'))
                 f.close
                 return
@@ -80,9 +60,6 @@ def WHT(url):
                 if os.path.isfile(path3) == False:
                     print "found IDs 1-2, no file ID3 found, make ID3"
                     f = open(date_id+"_"+"ID3"+".txt", 'w')
-                    f.write(date.encode('utf-8'))
-                    f.write(release.encode('utf-8'))
-                    f.write(title.encode('utf-8'))
                     f.write(paragraph_body.encode('utf-8'))
                     f.close
                     return
@@ -91,9 +68,6 @@ def WHT(url):
                     if os.path.isfile(path4) == False:
                         print "found IDs 1-3, no file ID4 found, make ID4"
                         f = open(date_id+"_"+"ID4"+".txt", 'w')
-                        f.write(date.encode('utf-8'))
-                        f.write(release.encode('utf-8'))
-                        f.write(title.encode('utf-8'))
                         f.write(paragraph_body.encode('utf-8'))
                         f.close
                         return
@@ -102,18 +76,12 @@ def WHT(url):
                         if os.path.isfile(path5) == False:
                             print "found IDs 1-4, no file ID5 found, make ID5"
                             f = open(date_id+"_"+"ID5"+".txt", 'w')
-                            f.write(date.encode('utf-8'))
-                            f.write(release.encode('utf-8'))
-                            f.write(title.encode('utf-8'))
                             f.write(paragraph_body.encode('utf-8'))
                             f.close
                             return
                         elif os.path.isfile(path5) == True:
                             print "found IDs 1-5, create random ID"
                             f = open(date_id+"_"+"ID"+randID+".txt", 'w')
-                            f.write(date.encode('utf-8'))
-                            f.write(release.encode('utf-8'))
-                            f.write(title.encode('utf-8'))
                             f.write(paragraph_body.encode('utf-8'))
                             f.close
                             return 
@@ -124,29 +92,8 @@ def WHT(url):
 
 
 
-    
-
-##Test URLS
-#2014
-#url = "http://www.whitehouse.gov/the-press-office/2014/01/22/remarks-president-meeting-presidential-commission-election-administratio"
-
-
-#2011
-#url = "http://www.whitehouse.gov/the-press-office/2011/01/25/remarks-president-state-union-address"
-
-#url = "http://www.whitehouse.gov/the-press-office/2011/01/26/remarks-president-economy-manitowoc-wisconsin"
-
-#Broke on this 2012 URL
-#url = "http://www.whitehouse.gov/the-press-office/2012/10/29/remarks-president-hurricane-sandy"
-#url = "http://www.whitehouse.gov/the-press-office/2012/10/29/remarks-first-lady-campaign-event-0"
-#url = "http://www.whitehouse.gov/the-press-office/2012/10/29/remarks-president-hurricane-sandy"
 
 
 #url = "http://www.whitehouse.gov/the-press-office/2012/10/28/remarks-president-hurricane-sandy"
 
-#WHT(url)
-
-
-
-
-
+#WHT2(url)
