@@ -55,10 +55,10 @@ def WHT(url):
 
 
 ##Test URLS
-url = "http://www.whitehouse.gov/the-press-office/2014/10/30/remarks-first-lady-grassroots-campaign-event-democratic-candidate-govern"
+#url = "http://www.whitehouse.gov/the-press-office/2014/10/30/remarks-first-lady-grassroots-campaign-event-democratic-candidate-govern"
 #url = "http://www.whitehouse.gov/the-press-office/2014/01/22/remarks-president-meeting-presidential-commission-election-administratio"
 #url = "http://www.whitehouse.gov/the-press-office/2015/02/11/remarks-president-americas-leadership-ebola-fight"
 
-WHT(url)
+#WHT(url)
 
 
