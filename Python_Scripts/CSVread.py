@@ -1,11 +1,10 @@
 
-
 from date import date
 import csv
 
 def read_parentURLs(i):
 	"""Reads the URLs from the Parent URLs CSV"""
-	with open('parentURLs.csv', 'rb') as urls_file:
+	with open('parentURLs.csv', 'rU') as urls_file:
 		reader = csv.reader(urls_file)
 		lines = list(reader)
 		URL = lines[i]
@@ -13,7 +12,7 @@ def read_parentURLs(i):
 
 def read_reqURLs(i):
 	"""Reads the URLs from the Requested Parent URLs CSV"""
-	with open('requested_parentURLs.csv', 'rb') as urls_file:
+	with open('requested_parentURLs.csv', 'rU') as urls_file:
 		reader = csv.reader(urls_file)
 		lines = list(reader)
 		URL = lines[i]
@@ -22,7 +21,7 @@ def read_reqURLs(i):
 
 
 def read_subURLs(i):
-	with open('subpages.csv', 'rb') as urls_file:
+	with open('subpages.csv', 'rU') as urls_file:
 		reader = csv.reader(urls_file)
 		lines = list(reader)
 		URL = lines[i]
@@ -31,10 +30,58 @@ def read_subURLs(i):
 
 
 def read_speechURLs(i):
-	with open('speechurls.csv', 'rb') as urls_file:
+	with open('speechurls.csv', 'rU') as urls_file:
 		reader = csv.reader(urls_file)
 		lines = list(reader)
 		URL = lines[i]
 		print "creating file", i+1
 		return URL
+
+
+
+def read_presidentURLs(i):
+	with open('__president_urls.csv', 'rU') as urls_file:
+		reader = csv.reader(urls_file)
+		lines = list(reader)
+		URL = lines[i]
+		print "creating file", i+1
+		return URL
+
+
+def read_vice_presidentURLs(i):
+	with open('__vice_president_urls.csv', 'rU') as urls_file:
+		reader = csv.reader(urls_file)
+		lines = list(reader)
+		URL = lines[i]
+		print "creating file", i+1
+		return URL
+
+
+def read_first_ladyURLs(i):
+	with open('__first-lady_urls.csv', 'rU') as urls_file:
+		reader = csv.reader(urls_file)
+		lines = list(reader)
+		URL = lines[i]
+		print "creating file", i+1
+		return URL
+
+
+
+def read_second_ladyURLs(i):
+	with open('__second-lady_urls.csv', 'rU') as urls_file:
+		reader = csv.reader(urls_file)
+		lines = list(reader)
+		URL = lines[i]
+		print "creating file", i+1
+		return URL
+
+
+def read_otherURLs(i):
+	with open('__other_urls.csv', 'rU') as urls_file:
+		reader = csv.reader(urls_file)
+		lines = list(reader)
+		URL = lines[i]
+		print "creating file", i+1
+		return URL
+
 
