@@ -25,7 +25,7 @@ cd ..
 ## ____________ SECOND_STAGE - Collect URLs ___________________ ##
 
 #Run main_speechesurls.py to generate CSV's
-python __main_speech_urls_bearer.py "2013/08" "2013/09"
+python __main_speech_urls_bearer.py "2009/01" "2015/02"
 
 
 ## ____________ THIRD_STAGE - Filter URLs _____________________ ##

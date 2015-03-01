@@ -1,35 +1,42 @@
-#Second Parser Created to Address Differing HTML Code from White House
-#WHT2 works when the speech header is set up as <div id="content">
-# <p allign="center" INFO p> . Otherwise, use WHT1.
-#WHT1 works when release and date are in <div class="release" INFO </div>
-# and <div class="date"> INFO </div>.
-
-
-
-def WHT2(url):
+def WHT3(url):
     """Prints Text Output for a given URL from Whitehouse Speeches and Remarks"""
     
     import urllib2,sys, random
     import os
     from bs4 import BeautifulSoup
 
+
     soup = BeautifulSoup(urllib2.urlopen(url).read())
 
     # Get URL
     url2 = "Cite: \n"+url+"\n"
     
-    # Get Paragraph Body
-    content = soup.find("div", {"id":"content"})
-    paragraph = ["".join(x.findAll(text=True)) for x in content.findAll("p")]
-    paragraph_body = "\n\n%s" % ("\n\n".join(paragraph))
+    try:
+        # Get Paragraph Body2
+        content2 = soup.find("div", {"class":"legacy-content"})
+        paragraph2 = ["".join(x.findAll(text=True)) for x in content2.findAll("div")]
+        paragraph_body2 = "\n\n%s" % ("\n\n".join(paragraph2))
+
+        # Get Paragraph Body1
+        content1 = soup.find("div", {"id":"content"})
+        paragraph1 = ["".join(x.findAll(text=True)) for x in content1.findAll("p")]
+        paragraph_body1 = "\n\n%s" % ("\n\n".join(paragraph1))
+
+        str_id = url[60:75]
+        date_id = "2009-2010"+'-'+str(date2)+str_id
 
 
-    #Get File ID - Date & Time
-    #Date
-    year_id = url[43:47]
-    month_id = url[48:50]
-    day_id = url[51:53]
-    date_id = year_id+'-'+month_id+'-'+day_id
+    except:
+        # Get Paragraph Body1
+        content1 = soup.find("div", {"id":"content"})
+        paragraph1 = ["".join(x.findAll(text=True)) for x in content1.findAll("p")]
+        paragraph_body1 = "\n\n%s" % ("\n\n".join(paragraph1))
+
+
+        str_id = url[60:75]
+        date_id = "2009-2010"+'-'+str_id
+
+
     #Random ID
     randID = str(random.randrange(6, 1000, 1))
 
@@ -43,7 +50,8 @@ def WHT2(url):
             #print "no file ID1 found, create ID1"
             f = open(date_id+"_"+"ID1"+".txt", 'w')
             f.write(url2.encode('utf-8'))
-            f.write(paragraph_body.encode('utf-8'))
+            f.write(paragraph_body1.encode('utf-8'))
+            f.write(paragraph_body2.encode('utf-8'))
             f.close
             return
 
@@ -53,7 +61,8 @@ def WHT2(url):
                 print "found ID1, no file ID2 found, make ID2"
                 f = open(date_id+"_"+"ID2"+".txt", 'w')
                 f.write(url2.encode('utf-8'))
-                f.write(paragraph_body.encode('utf-8'))
+                f.write(paragraph_body1.encode('utf-8'))
+                f.write(paragraph_body2.encode('utf-8'))
                 f.close
                 return
             elif os.path.isfile(path2) == True:
@@ -62,7 +71,8 @@ def WHT2(url):
                     print "found IDs 1-2, no file ID3 found, make ID3"
                     f = open(date_id+"_"+"ID3"+".txt", 'w')
                     f.write(url2.encode('utf-8'))
-                    f.write(paragraph_body.encode('utf-8'))
+                    f.write(paragraph_body1.encode('utf-8'))
+                    f.write(paragraph_body2.encode('utf-8'))
                     f.close
                     return
                 elif os.path.isfile(path3) == True:
@@ -71,7 +81,8 @@ def WHT2(url):
                         print "found IDs 1-3, no file ID4 found, make ID4"
                         f = open(date_id+"_"+"ID4"+".txt", 'w')
                         f.write(url2.encode('utf-8'))
-                        f.write(paragraph_body.encode('utf-8'))
+                        f.write(paragraph_body1.encode('utf-8'))
+                        f.write(paragraph_body2.encode('utf-8'))
                         f.close
                         return
                     elif os.path.isfile(path4) == True:
@@ -80,14 +91,16 @@ def WHT2(url):
                             print "found IDs 1-4, no file ID5 found, make ID5"
                             f = open(date_id+"_"+"ID5"+".txt", 'w')
                             f.write(url2.encode('utf-8'))
-                            f.write(paragraph_body.encode('utf-8'))
+                            f.write(paragraph_body1.encode('utf-8'))
+                            f.write(paragraph_body2.encode('utf-8'))
                             f.close
                             return
                         elif os.path.isfile(path5) == True:
                             print "found IDs 1-5, create random ID"
                             f = open(date_id+"_"+"ID"+randID+".txt", 'w')
                             f.write(url2.encode('utf-8'))
-                            f.write(paragraph_body.encode('utf-8'))
+                            f.write(paragraph_body1.encode('utf-8'))
+                            f.write(paragraph_body2.encode('utf-8'))
                             f.close
                             return 
 
@@ -98,11 +111,8 @@ def WHT2(url):
 
 
 
-
-#url = "http://www.whitehouse.gov/the-press-office/2012/10/28/remarks-president-hurricane-sandy"
-#url = "http://www.whitehouse.gov/the-press-office/remarks-president-obama-german-chancellor-merkel-and-elie-wiesel-buchenwald-concent"
-
-#WHT2(url)
-
-
-
+#Test
+#url = "http://www.whitehouse.gov/the-press-office/remarks-president-qa-session-closing-fiscal-responsibility-summit-2-23-09"
+#url = "http://www.whitehouse.gov/the-press-office/remarks-president-senate-passage-health-insurance-reform"
+#url = "http://www.whitehouse.gov/the-press-office/press-availability-president-obama-and-prime-minister-rudd-australia"
+#WHT3(url)

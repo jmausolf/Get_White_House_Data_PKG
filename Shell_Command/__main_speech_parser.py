@@ -9,6 +9,8 @@ from date import date
 from CSVread import *
 from Speech_parser1 import *
 from Speech_parser2 import *
+from Speech_parser3 import *
+from Speech_parser_ID import Parser_ID 
 
 
 if __name__ == '__main__':
@@ -22,18 +24,31 @@ if __name__ == '__main__':
 		reader = csv.reader(urls_file)
 		lines = list(reader)
 		Xpotus = len(lines)
-		print "Total requested speech urls:", Xpotus
+		print "Total requested President speech urls:", Xpotus
 
 
 	# Create Parsed Speeches - President
 	for URL in range(0, Xpotus):
-	#for URL in range(0, 5):
+	#for URL in range(1500, 1502):
 		speechURL = '\n'.join(map(str, read_presidentURLs(URL)))
 		time.sleep(0.5)
 		try:
 			WHT(speechURL)
+			print "ran WHT1"
 		except:
-			WHT2(speechURL)
+			if Parser_ID(speechURL)==2:
+				try:
+					WHT2(speechURL)
+					print "ran WHT2"
+				except:
+					pass
+			elif Parser_ID(speechURL)==3:
+				try:
+					WHT3(speechURL)
+					print "ran WHT3"
+				except:
+					print "exception: passed"
+					pass
 
 
 ## ____________ Vice-President Speeches _____________ ##
@@ -46,17 +61,30 @@ if __name__ == '__main__':
 			reader = csv.reader(urls_file)
 			lines = list(reader)
 			Xvp = len(lines)
-			print "Total requested speech urls:", Xvp
+			print "Total requested Vice-President speech urls:", Xvp
 
 		# Create Parsed Speeches - Vice-President
 		for URL in range(0, Xvp):
-		#for URL in range(0, 3):
+		#for URL in range(180, 182):
 			speechURL = '\n'.join(map(str, read_vice_presidentURLs(URL)))
 			time.sleep(0.5)
 			try:
 				WHT(speechURL)
+				print "ran WHT1"
 			except:
-				WHT2(speechURL)
+				if Parser_ID(speechURL)==2:
+					try:
+						WHT2(speechURL)
+						print "ran WHT2"
+					except:
+						pass
+				elif Parser_ID(speechURL)==3:
+					try:
+						WHT3(speechURL)
+						print "ran WHT3"
+					except:
+						print "exception: passed"
+						pass
 	except:
 		print "No Vice-President Speeches Found, Pass."
 		pass
@@ -72,17 +100,30 @@ if __name__ == '__main__':
 			reader = csv.reader(urls_file)
 			lines = list(reader)
 			Xflotus = len(lines)
-			print "Total requested speech urls:", Xflotus
+			print "Total requested First-Lady speech urls:", Xflotus
 
 		# Create Parsed Speeches - First Lady
 		for URL in range(0, Xflotus):
-		#for URL in range(0, 14):
+		#for URL in range(550, 552):
 			speechURL = '\n'.join(map(str, read_first_ladyURLs(URL)))
 			time.sleep(0.5)
 			try:
 				WHT(speechURL)
+				print "ran WHT1"
 			except:
-				WHT2(speechURL)
+				if Parser_ID(speechURL)==2:
+					try:
+						WHT2(speechURL)
+						print "ran WHT2"
+					except:
+						pass
+				elif Parser_ID(speechURL)==3:
+					try:
+						WHT3(speechURL)
+						print "ran WHT3"
+					except:
+						print "exception: passed"
+						pass
 	except:
 		print "No First-Lady Speeches Found, Pass."
 		pass
@@ -98,17 +139,30 @@ if __name__ == '__main__':
 			reader = csv.reader(urls_file)
 			lines = list(reader)
 			Xsl = len(lines)
-			print "Total requested speech urls:", Xsl
-		print "back up again"
+			print "Total requested Second-Lady speech urls:", Xsl
 
 		# Create Parsed Speeches - Second Lady
 		for URL in range(0, Xsl):
+		#for URL in range(20, 22):
 			speechURL = '\n'.join(map(str, read_second_ladyURLs(URL)))
 			time.sleep(0.5)
 			try:
 				WHT(speechURL)
+				print "ran WHT1"
 			except:
-				WHT2(speechURL)
+				if Parser_ID(speechURL)==2:
+					try:
+						WHT2(speechURL)
+						print "ran WHT2"
+					except:
+						pass
+				elif Parser_ID(speechURL)==3:
+					try:
+						WHT3(speechURL)
+						print "ran WHT3"
+					except:
+						print "exception: passed"
+						pass
 	except:
 		print "No Second-Lady Speeches Found, Pass."
 		pass
@@ -124,17 +178,30 @@ if __name__ == '__main__':
 			reader = csv.reader(urls_file)
 			lines = list(reader)
 			Xother = len(lines)
-			print "Total requested speech urls:", Xother
+			print "Total requested Other speech urls:", Xother
 
 		# Create Parsed Speeches - Other
 		for URL in range(0, Xother):
-		#for URL in range(0, 2):
+		#for URL in range(290, 292):
 			speechURL = '\n'.join(map(str, read_otherURLs(URL)))
 			time.sleep(0.5)
 			try:
 				WHT(speechURL)
+				print "ran WHT1"
 			except:
-				WHT2(speechURL)
+				if Parser_ID(speechURL)==2:
+					try:
+						WHT2(speechURL)
+						print "ran WHT2"
+					except:
+						pass
+				elif Parser_ID(speechURL)==3:
+					try:
+						WHT3(speechURL)
+						print "ran WHT3"
+					except:
+						print "exception: passed"
+						pass
 	except:
 		print "No Other Speeches Found, Pass."
 		pass
