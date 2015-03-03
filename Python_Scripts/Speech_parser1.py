@@ -140,20 +140,6 @@ def WHT(url):
 #2014
 #url = "http://www.whitehouse.gov/the-press-office/2014/01/22/remarks-president-meeting-presidential-commission-election-administratio"
 
-
-#2011
-#url = "http://www.whitehouse.gov/the-press-office/2011/01/25/remarks-president-state-union-address"
-
-#url = "http://www.whitehouse.gov/the-press-office/2011/01/26/remarks-president-economy-manitowoc-wisconsin"
-
-#Broke on this 2012 URL
-#url = "http://www.whitehouse.gov/the-press-office/2012/10/29/remarks-president-hurricane-sandy"
-#url = "http://www.whitehouse.gov/the-press-office/2012/10/29/remarks-first-lady-campaign-event-0"
-#url = "http://www.whitehouse.gov/the-press-office/2012/10/29/remarks-president-hurricane-sandy"
-
-
-#url = "http://www.whitehouse.gov/the-press-office/2012/10/28/remarks-president-hurricane-sandy"
-
 #WHT(url)
 
 

@@ -1,12 +1,7 @@
-#First Parser Created Addresses Most White Hosue HTML Code
-#WHT1 works when release and date are in <div class="release" INFO </div>
-# and <div class="date"> INFO </div>. Otherwise use WHT2. 
-#WHT2 works when the speech header is set up as <div id="content">
-# <p allign="center" INFO p>.
+from month import *
 
 
-
-def WHT(url):
+def pre_WHT1(url):
     """Prints Text Output for a given URL from Whitehouse Speeches and Remarks"""
     
     import urllib2,sys, random
@@ -40,14 +35,36 @@ def WHT(url):
     paragraph_body = "\n\n%s" % ("\n\n".join(paragraph))
 
 
-
-
     #Get File ID - Date & Time
-    #Date
-    year_id = url[43:47]
-    month_id = url[48:50]
-    day_id = url[51:53]
+
+    #Date - RAW
+    date_split = date.split(' ')
+    month_raw = date_split[0]
+    day_raw = date_split[1]
+    year_raw = date_split[2]
+
+    #MonthID
+    month_clean1 = month_raw.replace(' ', '')
+    month_clean2 = month_clean1.replace('\n', '')
+    try:
+        month_id = month(month_clean2)
+    except:
+        month_id = month_clean2
+
+    #DayID
+    day_clean1 = day_raw.replace(',', '')
+    day_clean2 = day_clean1.replace(' ', '')
+    day_clean3 = day_clean2.replace('\n', '')
+    day_id = day_clean3
+
+    #YearID
+    year_clean1 = year_raw.replace(' ', '')
+    year_clean2 = year_clean1.replace('\n', '')
+    year_id = year_clean2
+
+    #Final DateID
     date_id = year_id+'-'+month_id+'-'+day_id
+
     #Random ID
     randID1 = str(random.randrange(6, 10000, 1))
     randID2 = str(random.randrange(6, 10000, 1))
@@ -137,24 +154,11 @@ def WHT(url):
     
 
 ##Test URLS
-#2014
-#url = "http://www.whitehouse.gov/the-press-office/2014/01/22/remarks-president-meeting-presidential-commission-election-administratio"
 
+#2010
+#url = "http://www.whitehouse.gov/the-press-office/remarks-president-dnc-reception-boston-massachusetts"
 
-#2011
-#url = "http://www.whitehouse.gov/the-press-office/2011/01/25/remarks-president-state-union-address"
-
-#url = "http://www.whitehouse.gov/the-press-office/2011/01/26/remarks-president-economy-manitowoc-wisconsin"
-
-#Broke on this 2012 URL
-#url = "http://www.whitehouse.gov/the-press-office/2012/10/29/remarks-president-hurricane-sandy"
-#url = "http://www.whitehouse.gov/the-press-office/2012/10/29/remarks-first-lady-campaign-event-0"
-#url = "http://www.whitehouse.gov/the-press-office/2012/10/29/remarks-president-hurricane-sandy"
-
-
-#url = "http://www.whitehouse.gov/the-press-office/2012/10/28/remarks-president-hurricane-sandy"
-
-#WHT(url)
+#pre_WHT1(url)
 
 
 

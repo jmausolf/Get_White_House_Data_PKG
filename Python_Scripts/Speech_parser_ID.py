@@ -33,10 +33,10 @@ def Parser_ID(url):
                         #print "Use WHT3"
                         return 3
             else:
+                #print "else pass"
                 pass
 
     except:
+        #print "except pass"
         pass
-
-
 

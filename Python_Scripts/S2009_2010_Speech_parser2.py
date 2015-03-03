@@ -1,12 +1,4 @@
-#Second Parser Created to Address Differing HTML Code from White House
-#WHT2 works when the speech header is set up as <div id="content">
-# <p allign="center" INFO p> . Otherwise, use WHT1.
-#WHT1 works when release and date are in <div class="release" INFO </div>
-# and <div class="date"> INFO </div>.
-
-
-
-def WHT2(url):
+def pre_WHT2(url):
     """Prints Text Output for a given URL from Whitehouse Speeches and Remarks"""
     
     import urllib2,sys, random
@@ -26,10 +18,8 @@ def WHT2(url):
 
     #Get File ID - Date & Time
     #Date
-    year_id = url[43:47]
-    month_id = url[48:50]
-    day_id = url[51:53]
-    date_id = year_id+'-'+month_id+'-'+day_id
+    date_id = "2009-2010"+'-'+url[60:75]
+
     #Random ID
     randID1 = str(random.randrange(6, 10000, 1))
     randID2 = str(random.randrange(6, 10000, 1))
@@ -101,9 +91,8 @@ def WHT2(url):
 
 
 #url = "http://www.whitehouse.gov/the-press-office/2012/10/28/remarks-president-hurricane-sandy"
-#url = "http://www.whitehouse.gov/the-press-office/remarks-president-obama-german-chancellor-merkel-and-elie-wiesel-buchenwald-concent"
 
-#WHT2(url)
+#pre_WHT2(url)
 
 
 
