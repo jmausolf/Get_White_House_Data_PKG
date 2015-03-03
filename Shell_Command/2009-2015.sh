@@ -67,8 +67,7 @@ mv __other_urls.csv bash_CSVs/Filtered_Speech_CSVs
 ## ***** SKIP FOR COLLECTIVE 2009-2015 ***** ##
 
 
-#Generate Text Files for Given Speech URLS
-#python __main_speech_parser.py 
+
 
 
 ## ____________ SIXTH_STAGE - Rename Bash Folders __________________ ##

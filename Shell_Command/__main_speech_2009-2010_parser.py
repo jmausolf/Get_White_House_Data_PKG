@@ -11,9 +11,9 @@ from readParent import *
 from pages import *
 from date import date
 from CSVread import *
-from S2009_2010_Speech_parser1.py import *
-from S2009_2010_Speech_parser2.py import *
-from S2009_2010_Speech_parser3.py import *
+from S2009_2010_Speech_parser1 import *
+from S2009_2010_Speech_parser2 import *
+from S2009_2010_Speech_parser3 import *
 from Speech_parser_ID import Parser_ID 
 
 
@@ -33,26 +33,25 @@ if __name__ == '__main__':
 
 	# Create Parsed Speeches - President
 	for URL in range(0, Xpotus):
-	#for URL in range(1500, 1502):
+	#for URL in range(645, 694):
 		speechURL = '\n'.join(map(str, read_presidentURLs(URL)))
 		time.sleep(0.5)
 		try:
-			WHT(speechURL)
-			print "ran WHT1"
+			pre_WHT1(speechURL)
+			print "ran pre_WHT1"
 		except:
-			if Parser_ID(speechURL)==2:
+			try:
+				pre_WHT3(speechURL)
+				print "ran pre_WHT3"
+			except:
 				try:
-					WHT2(speechURL)
-					print "ran WHT2"
+					pre_WHT2(speechURL)
+					print "ran pre_WHT2"
 				except:
+					print "ERROR: NO SPEECH PARSED. EXCEPTION CODE: 99"
 					pass
-			elif Parser_ID(speechURL)==3:
-				try:
-					WHT3(speechURL)
-					print "ran WHT3"
-				except:
-					print "exception: passed"
-					pass
+
+
 
 
 ## ____________ Vice-President Speeches _____________ ##
@@ -73,21 +72,18 @@ if __name__ == '__main__':
 			speechURL = '\n'.join(map(str, read_vice_presidentURLs(URL)))
 			time.sleep(0.5)
 			try:
-				WHT(speechURL)
-				print "ran WHT1"
+				pre_WHT1(speechURL)
+				print "ran pre_WHT1"
 			except:
-				if Parser_ID(speechURL)==2:
+				try:
+					pre_WHT3(speechURL)
+					print "ran pre_WHT3"
+				except:
 					try:
-						WHT2(speechURL)
-						print "ran WHT2"
+						pre_WHT2(speechURL)
+						print "ran pre_WHT2"
 					except:
-						pass
-				elif Parser_ID(speechURL)==3:
-					try:
-						WHT3(speechURL)
-						print "ran WHT3"
-					except:
-						print "exception: passed"
+						print "ERROR: NO SPEECH PARSED. EXCEPTION CODE: 99"
 						pass
 	except:
 		print "No Vice-President Speeches Found, Pass."
@@ -112,21 +108,18 @@ if __name__ == '__main__':
 			speechURL = '\n'.join(map(str, read_first_ladyURLs(URL)))
 			time.sleep(0.5)
 			try:
-				WHT(speechURL)
-				print "ran WHT1"
+				pre_WHT1(speechURL)
+				print "ran pre_WHT1"
 			except:
-				if Parser_ID(speechURL)==2:
+				try:
+					pre_WHT3(speechURL)
+					print "ran pre_WHT3"
+				except:
 					try:
-						WHT2(speechURL)
-						print "ran WHT2"
+						pre_WHT2(speechURL)
+						print "ran pre_WHT2"
 					except:
-						pass
-				elif Parser_ID(speechURL)==3:
-					try:
-						WHT3(speechURL)
-						print "ran WHT3"
-					except:
-						print "exception: passed"
+						print "ERROR: NO SPEECH PARSED. EXCEPTION CODE: 99"
 						pass
 	except:
 		print "No First-Lady Speeches Found, Pass."
@@ -151,21 +144,18 @@ if __name__ == '__main__':
 			speechURL = '\n'.join(map(str, read_second_ladyURLs(URL)))
 			time.sleep(0.5)
 			try:
-				WHT(speechURL)
-				print "ran WHT1"
+				pre_WHT1(speechURL)
+				print "ran pre_WHT1"
 			except:
-				if Parser_ID(speechURL)==2:
+				try:
+					pre_WHT3(speechURL)
+					print "ran pre_WHT3"
+				except:
 					try:
-						WHT2(speechURL)
-						print "ran WHT2"
+						pre_WHT2(speechURL)
+						print "ran pre_WHT2"
 					except:
-						pass
-				elif Parser_ID(speechURL)==3:
-					try:
-						WHT3(speechURL)
-						print "ran WHT3"
-					except:
-						print "exception: passed"
+						print "ERROR: NO SPEECH PARSED. EXCEPTION CODE: 99"
 						pass
 	except:
 		print "No Second-Lady Speeches Found, Pass."
@@ -190,21 +180,18 @@ if __name__ == '__main__':
 			speechURL = '\n'.join(map(str, read_otherURLs(URL)))
 			time.sleep(0.5)
 			try:
-				WHT(speechURL)
-				print "ran WHT1"
+				pre_WHT1(speechURL)
+				print "ran pre_WHT1"
 			except:
-				if Parser_ID(speechURL)==2:
+				try:
+					pre_WHT3(speechURL)
+					print "ran pre_WHT3"
+				except:
 					try:
-						WHT2(speechURL)
-						print "ran WHT2"
+						pre_WHT2(speechURL)
+						print "ran pre_WHT2"
 					except:
-						pass
-				elif Parser_ID(speechURL)==3:
-					try:
-						WHT3(speechURL)
-						print "ran WHT3"
-					except:
-						print "exception: passed"
+						print "ERROR: NO SPEECH PARSED. EXCEPTION CODE: 99"
 						pass
 	except:
 		print "No Other Speeches Found, Pass."
