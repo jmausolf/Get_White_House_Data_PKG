@@ -209,33 +209,62 @@ cp -n 2015_Speeches/2015_Speech_Other/* __2009-2015_MASTER_Speeches/__2009-2015_
 
 ## ______ FIFTH_STAGE - Move All Year Folders to Collective Folders _____ ##
 
-#Move All Yearly Folders -- Speeches 
-mkdir Yearly_Speeches
-mv 2009_Speeches* Yearly_Speeches/
-mv 2010_Speeches* Yearly_Speeches/
-mv 2011_Speeches* Yearly_Speeches/
-mv 2012_Speeches* Yearly_Speeches/
-mv 2013_Speeches* Yearly_Speeches/
-mv 2014_Speeches* Yearly_Speeches/
-mv 2015_Speeches* Yearly_Speeches/
+#Move All __Yearly Folders -- Speeches 
+mkdir __Yearly_Speeches
+mv 2009_Speeches* __Yearly_Speeches/
+mv 2010_Speeches* __Yearly_Speeches/
+mv 2011_Speeches* __Yearly_Speeches/
+mv 2012_Speeches* __Yearly_Speeches/
+mv 2013_Speeches* __Yearly_Speeches/
+mv 2014_Speeches* __Yearly_Speeches/
+mv 2015_Speeches* __Yearly_Speeches/
 
-#Move All Yearly Folders -- CSVs 
-mkdir Yearly_CSVs
-mv 2009_CSVs* Yearly_CSVs/
-mv 2010_CSVs* Yearly_CSVs/
-mv 2011_CSVs* Yearly_CSVs/
-mv 2012_CSVs* Yearly_CSVs/
-mv 2013_CSVs* Yearly_CSVs/
-mv 2014_CSVs* Yearly_CSVs/
-mv 2015_CSVs* Yearly_CSVs/
-
-
+#Move All __Yearly Folders -- CSVs 
+mkdir __Yearly_CSVs
+mv 2009_CSVs* __Yearly_CSVs/
+mv 2010_CSVs* __Yearly_CSVs/
+mv 2011_CSVs* __Yearly_CSVs/
+mv 2012_CSVs* __Yearly_CSVs/
+mv 2013_CSVs* __Yearly_CSVs/
+mv 2014_CSVs* __Yearly_CSVs/
+mv 2015_CSVs* __Yearly_CSVs/
 
 
 
+## ______________ SIXTH_STAGE - Final Folder Organization _______________ ##
 
 
+#Move All Shell_Command Scripts 
+mkdir Package_Scripts
+cd Package_Scripts
+mkdir __Shell_Scripts
+mkdir __Python_Scripts
+cd __Python_Scripts
+mkdir __Main_Python_Scripts
+cd .. 
+cd ..
+mv *.sh Package_Scripts/__Shell_Scripts
+mv *.py Package_Scripts/__Python_Scripts/__Main_Python_Scripts
+cd ..
+mv Python_Scripts* Shell_Command/Package_Scripts/__Python_Scripts
+cd Shell_Command/Package_Scripts/__Python_Scripts
+mv Python_Scripts __Supporting_Python_Scripts
+cd ..
+cd ..
+cd ..
 
+#Make New Speech Directory
+mkdir 1_WHITE_HOUSE_SPEECHES
+mv Shell_Command/__2009-2015_MASTER_Speeches* 1_WHITE_HOUSE_SPEECHES
+mv Shell_Command/__Yearly_Speeches* 1_WHITE_HOUSE_SPEECHES
+
+#Make New CSV Directory
+mkdir 2_CSVs
+mv Shell_Command/__2009-2015_MASTER_CSVs* 2_CSVs
+mv Shell_Command/__Yearly_CSVs* 2_CSVs
+
+#Rename Shell_Command
+mv Shell_Command 3_Program
 
 
 
