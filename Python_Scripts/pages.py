@@ -10,14 +10,14 @@ def pages(url):
 	
     #Page Counter
     page_counter = soup.find("div", {"class":"item-list"})
-    paragraph = ["".join(x.findAll(text=True)) for x in page_counter.findAll("li", {"class":"pager-item"})]
+    try:
+        paragraph = ["".join(x.findAll(text=True)) for x in page_counter.findAll("li", {"class":"pager-item"})]
+        return len(paragraph)
+    except:
+        return 0
     
-    #print len(paragraph)
-
-    return len(paragraph)
 
 #pages("http://www.whitehouse.gov/briefing-room/Speeches-and-Remarks/2010/09")
-
 #pages("http://www.whitehouse.gov/briefing-room/Speeches-and-Remarks/2011/04")
 
 
@@ -35,29 +35,8 @@ def sub_pages_URLs(parent_url):
     finally:
         f.close()
 
-    """
-
-        f = open('subpages.csv', 'w')
-    for i in range(0, total_pages+1):
-        #return base_url+str(i)
-        sub_page_url = base_url+str(i)
-        f.write(u'%s\n' % (sub_page_url))
-    f.close() 
-    """
-
-
-
-    """
-	for i in range(0, total_pages+1):
-        #return base_url+str(i)
-		print base_url+str(i)
-
-    """
-
-
 
 #sub_pages_URLs("http://www.whitehouse.gov/briefing-room/Speeches-and-Remarks/2010/09")
-
 #sub_pages_URLs("http://www.whitehouse.gov/briefing-room/Speeches-and-Remarks/2009/09")
 
 

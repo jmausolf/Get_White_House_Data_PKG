@@ -95,56 +95,56 @@ cd ..
 
 #2009
 cd 2009_CSVs
-mv Auxillary_CSVs 2009_Auxillary_CSVs
+mv Auxiliary_CSVs 2009_Auxiliary_CSVs
 mv Master_Speech_CSV 2009_Master_Speech_CSV
 mv Filtered_Speech_CSVs 2009_Filtered_Speech_CSVs
 cd ..
 
 #2010
 cd 2010_CSVs
-mv Auxillary_CSVs 2010_Auxillary_CSVs
+mv Auxiliary_CSVs 2010_Auxiliary_CSVs
 mv Master_Speech_CSV 2010_Master_Speech_CSV
 mv Filtered_Speech_CSVs 2010_Filtered_Speech_CSVs
 cd ..
 
 #2011
 cd 2011_CSVs
-mv Auxillary_CSVs 2011_Auxillary_CSVs
+mv Auxiliary_CSVs 2011_Auxiliary_CSVs
 mv Master_Speech_CSV 2011_Master_Speech_CSV
 mv Filtered_Speech_CSVs 2011_Filtered_Speech_CSVs
 cd ..
 
 #2012
 cd 2012_CSVs
-mv Auxillary_CSVs 2012_Auxillary_CSVs
+mv Auxiliary_CSVs 2012_Auxiliary_CSVs
 mv Master_Speech_CSV 2012_Master_Speech_CSV
 mv Filtered_Speech_CSVs 2012_Filtered_Speech_CSVs
 cd ..
 
 #2013
 cd 2013_CSVs
-mv Auxillary_CSVs 2013_Auxillary_CSVs
+mv Auxiliary_CSVs 2013_Auxiliary_CSVs
 mv Master_Speech_CSV 2013_Master_Speech_CSV
 mv Filtered_Speech_CSVs 2013_Filtered_Speech_CSVs
 cd ..
 
 #2014
 cd 2014_CSVs
-mv Auxillary_CSVs 2014_Auxillary_CSVs
+mv Auxiliary_CSVs 2014_Auxiliary_CSVs
 mv Master_Speech_CSV 2014_Master_Speech_CSV
 mv Filtered_Speech_CSVs 2014_Filtered_Speech_CSVs
 cd ..
 
 #2015
 cd 2015_CSVs
-mv Auxillary_CSVs 2015_Auxillary_CSVs
+mv Auxiliary_CSVs 2015_Auxiliary_CSVs
 mv Master_Speech_CSV 2015_Master_Speech_CSV
 mv Filtered_Speech_CSVs 2015_Filtered_Speech_CSVs
 cd ..
 
 #2009-2015
 cd __2009-2015_MASTER_CSVs
-mv Auxillary_CSVs __2009-2015_Auxillary_CSVs
+mv Auxiliary_CSVs __2009-2015_Auxiliary_CSVs
 mv Master_Speech_CSV __2009-2015_Master_Speech_CSV
 mv Filtered_Speech_CSVs __2009-2015_Filtered_Speech_CSVs
 cd ..

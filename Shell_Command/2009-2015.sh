@@ -5,7 +5,7 @@
 #Make New Directories -- CSVs 
 mkdir bash_CSVs
 cd bash_CSVs
-mkdir Auxillary_CSVs
+mkdir Auxiliary_CSVs
 mkdir Master_Speech_CSV
 mkdir Filtered_Speech_CSVs
 cd ..
@@ -37,10 +37,10 @@ python __main_speech_urls_filter.py
 ## ____________ FOURTH_STAGE - Sort Filtered URLs _____________ ##
 
 
-#Move Auxillary CSVs
-mv requested_parentURLs.csv bash_CSVs/Auxillary_CSVs
-mv subpages.csv bash_CSVs/Auxillary_CSVs
-mv parentURLs.csv bash_CSVs/Auxillary_CSVs
+#Move Auxiliary CSVs
+mv requested_parentURLs.csv bash_CSVs/Auxiliary_CSVs
+mv subpages.csv bash_CSVs/Auxiliary_CSVs
+mv parentURLs.csv bash_CSVs/Auxiliary_CSVs
 
 
 #Copy All Speech CSVs to Speech Folders
